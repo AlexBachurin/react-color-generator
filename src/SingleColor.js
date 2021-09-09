@@ -1,9 +1,13 @@
 import React from 'react'
-
-export default function SingleColor() {
+import rgbToHex from './utils'
+export default function SingleColor({ rgb, weight, index }) {
+    //transform rgb to hex value
+    const hex = rgbToHex(...rgb);
     return (
-        <div>
-
-        </div>
+        // dynamically add style to item
+        <article className="color" style={{ backgroundColor: hex }}>
+            <p className="percent-value">{weight}%</p>
+            <p className="color-value">{hex}</p>
+        </article>
     )
 }

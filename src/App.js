@@ -52,7 +52,10 @@ function App() {
         <p className="error-message">{error ? 'please enter proper value' : ''}</p>
       </section>
       <section className="colors">
-
+        {/* list with colors here */}
+        {list.map((color, index) => {
+          return <SingleColor key={index} {...color} index={index} />
+        })}
       </section>
     </>
   );
