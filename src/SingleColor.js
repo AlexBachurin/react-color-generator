@@ -13,6 +13,8 @@ export default function SingleColor({ rgb, weight, type }) {
     // copy handler function
     const copyToClipboard = () => {
         setAlert(true);
+        //copy to clipboard
+        navigator.clipboard.writeText(hex)
     }
     //change alert to false in 3 seconds and clear it
     useEffect(() => {
