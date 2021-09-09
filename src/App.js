@@ -13,7 +13,17 @@ function App() {
   // SUBMIT
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log('submit')
+    //get color values from values library
+    //and handle library default error by ourselves with try/catch
+    try {
+      let colors = new Values(colorValue).all(10);
+      console.log(colors);
+      setList(colors);
+      setError(false);
+    } catch (error) {
+      setError(true);
+      console.log(error)
+    }
   }
 
   //INPUT CHANGE
@@ -28,15 +38,18 @@ function App() {
       <section className="container">
         <h3>Color generator</h3>
         <form onSubmit={submitHandler}>
+
           <input
             type="text"
             placeholder="#f15025"
-            className="null"
+            className={error ? 'error' : null}
             value={colorValue}
             onChange={onChangeHandler}
           />
           <button className="btn" type="submit">submit</button>
+
         </form>
+        <p className="error-message">{error ? 'please enter proper value' : ''}</p>
       </section>
       <section className="colors">
 
