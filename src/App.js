@@ -4,11 +4,11 @@ import Values from 'values.js'
 
 function App() {
   //store our color from user input here
-  const [colorValue, setColorValue] = useState('');
+  const [colorValue, setColorValue] = useState('#7FFF00');
   //error
   const [error, setError] = useState(false);
   //list with colors
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(new Values(colorValue).all(10));
 
   // SUBMIT
   const submitHandler = (e) => {
@@ -17,12 +17,10 @@ function App() {
     //and handle library default error by ourselves with try/catch
     try {
       let colors = new Values(colorValue).all(10);
-      console.log(colors);
       setList(colors);
       setError(false);
     } catch (error) {
       setError(true);
-      console.log(error)
     }
   }
 
