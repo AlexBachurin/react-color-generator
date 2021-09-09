@@ -23,7 +23,7 @@ export default function SingleColor({ rgb, weight, type }) {
         }, 3000)
 
         return () => {
-            clearInterval(timerId);
+            clearTimeout(timerId);
         }
     }, [alert])
     return (
