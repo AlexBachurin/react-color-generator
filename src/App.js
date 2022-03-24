@@ -35,6 +35,7 @@ function App() {
   useEffect(() => {
     let colors = new Values(colorValue).all(10);
     setList(colors);
+    //eslint-disable-next-line
   }, [])
 
   return (
